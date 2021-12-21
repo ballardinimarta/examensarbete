@@ -1,17 +1,12 @@
-@import url("https://use.typekit.net/ywr7dtl.css");
-@font-face {
-  font-family: michelle;
-  src: url(./../public/fonts/michelle.otf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: dashiell-fine, serif;
+  font-family: 'Roboto Mono', monospace;
   background-color: #f8f7ff;
-  // font-family: michelle;
+  scroll-behavior: smooth;
 }
-
 
 a {
   color: inherit;
@@ -20,4 +15,28 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.greenbutton {
+  border: none;
+  padding: 15px 30px;
+  border-radius: 40px;
+  background-color: #1e1e24;
+  color: #f8f7ff;
+
+  font-family: inherit;
+  font-size: 20px;
+}
+.greenbutton:hover {
+  transition: .5s ease-in-out; 
+  color: #f8f7ff;
+  background-color: #90aa53
+}
+
+.title {
+  font-weight: 500;
+  font-size: 400%;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px;
 }

@@ -5,6 +5,12 @@
   display: flex;
   justify-content: flex-end;
   padding: 20px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+
+
   .logo {
     display: flex;
     justify-content: center;
@@ -25,7 +31,7 @@
   justify-content: space-evenly;
   align-items: center;
   z-index: 1;
-  font-family: michelle;
+  font-weight: 500;
   @include phone {
     height: 90vh;
 

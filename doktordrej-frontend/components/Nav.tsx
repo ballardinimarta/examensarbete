@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { useEffect, useState } from 'react'
-import logo from './../public/doktordrejlogo.svg'
+import logo from './../public/logo.svg'
 import close from './../public/close.svg'
 import { useRouter } from 'next/router'
 
@@ -39,7 +39,7 @@ function Nav() {
                     <Link href="/galleri">Galleri</Link>
                 </li>
                 <li>
-                    <Link href="/blogg">Blogg</Link>
+                    <Link href="/shop">Shop</Link>
                 </li>
             </ul>
         </div> : 
