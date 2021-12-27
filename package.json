@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "frontend": "cd doktordrej-frontend && npm run dev",
-    "backend": "cd doktordrej-backend && npm start"
-
+    "backend": "cd doktordrej-backend && npm run develop"
   },
   "author": "",
   "license": "ISC"

@@ -1,3 +1,4 @@
+@import 'mixins';
 
 .hero {
     margin-top: -137.5px;
@@ -9,6 +10,12 @@
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
+    @include phone {
+        background-position: right bottom;
+        height: 90vh;
+        margin-top: -80px;
+
+    }
     
     .heroText {
         margin-top: 50px;
@@ -20,6 +27,9 @@
         justify-content: center;
         font-weight: 500;
         font-size: 500%;
+        @include phone {
+            font-size: 200%;
+        }
     }
 }
 
@@ -27,23 +37,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px 0px;
     .aboutMeWrap {
         width: 80%;
         display: flex;
         flex-direction: column;
+        @include phone {
+            width: 90%;
+        }
         .aboutMeInfoContainer {
             display: flex;
             flex-direction: row;
             align-items: flex-start;
             justify-content: space-between;
+            @include phone {
+                flex-direction: column;
+
+            }
             .aboutMeText {
                 width: 75%;
                 font-size: 16px;
+                @include phone {
+                    font-size: 12px;
+                    width: 100%;
+
+                }
             }
             .aboutMeImages {
                 padding: 10px;
                 width: 20%;
-                
+                @include phone {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+
+                }
 
             }
         }
