@@ -8,10 +8,11 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
+  z-index: 2;
+
   @include phone {
     padding: 5px;
-
-   }
+  }
 
   .logo {
     display: flex;
@@ -19,7 +20,6 @@
     align-items: center;
     width: 70px;
     height: 80px;
-    z-index: 2;
     @include phone {
      width: 50px;
      height: 50px;
@@ -40,7 +40,8 @@
   z-index: 1;
   font-weight: 500;
   @include phone {
-    height: 90vh;
+    height: 100vh;
+    padding-bottom: 20%;
   }
   ul {
       padding: 0;

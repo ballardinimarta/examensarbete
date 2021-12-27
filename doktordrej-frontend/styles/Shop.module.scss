@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .categoryButton {
     cursor: pointer;
     display: flex;
@@ -10,6 +12,12 @@
         align-items: center;
         width: 90%;
         font-size: 200%;
+        
+        @include phone {
+            justify-content: center;
+            font-size: 150%;
+            
+        }
     }
     
 }
@@ -32,6 +40,10 @@
             background-color: #1e1e24;
             color: #f8f7ff;
             font-size: 150%;
+            @include phone {
+                font-size: 100%;
+
+            }
         }
     }
 }
@@ -40,15 +52,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    .category {
-        padding: 20px;
-        span{
-            font-size: 150%;
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-            text-underline-offset: 5px;
-        }
-    }
+    
     
     .articlesContainer {
         width: 90%;
@@ -56,12 +60,19 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: flex-start;
+        @include phone {
+            flex-direction: column;
+            align-items: center;
+        }
         .articleContainer {
-            margin: 20px;
+            margin: 30px;
             width: 20%;
             display: flex;
             flex-direction: column;
-           
+            @include phone {
+                width: 95%;
+                flex-direction: column;
+            }
             .articleImage{
                 width: 100%;
             }

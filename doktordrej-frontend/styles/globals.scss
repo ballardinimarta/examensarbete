@@ -49,10 +49,14 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 5px;
+  display: flex;
   @include phone {
     font-size: 250%;
     text-align: center;
   }
+}
+.right {
+  justify-content: flex-end;
 }
 
 .pageTitle {
@@ -61,13 +65,20 @@ a {
   font-weight: 500;
   font-size: 400%;
   text-align: center;
-  span {
-
+  @include phone {
+    font-size: 300%;
+    margin-top: -80px;
   }
+ 
   hr {
     width: 90%;
     height: 5px;
     background-color: #1e1e24;
     border: none;
   }
+}
+.slick-prev:before, .slick-next:before{
+  color: #1e1e24 !important;
+  opacity: 1 !important;
+  font-size: 15px !important; 
 }
