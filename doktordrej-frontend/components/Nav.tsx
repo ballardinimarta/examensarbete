@@ -7,8 +7,10 @@ import logo from './../public/logo.svg'
 import close from './../public/close.svg'
 import { useRouter } from 'next/router'
 
-
-function Nav() {
+interface INavProps {
+    dark: boolean
+}
+function Nav(props: INavProps) {
     const [toggle, setToggle] = useState(false)
     const router = useRouter();
 
@@ -18,10 +20,10 @@ function Nav() {
     return (
         <>
         <div className={NavStyles.navBar}>
-            <div className={NavStyles.logo} onClick={() => {
+            <div className={ toggle ? NavStyles.close : props.dark ? NavStyles.logoDark : NavStyles.logoLight} onClick={() => {
                 setToggle(!toggle)
             }}>
-                <Image  src={ toggle ? close : logo } alt="" />
+                {/* <Image  src={ toggle ? close : logo } alt="" /> */}
             </div>
         </div>
         {toggle ? 

@@ -37,7 +37,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px 0px;
+    padding: 50px 0px;
     .aboutMeWrap {
         width: 80%;
         display: flex;
@@ -55,6 +55,7 @@
 
             }
             .aboutMeText {
+                margin: 10px 0px;
                 width: 75%;
                 font-size: 18px;
                 @include phone {
@@ -96,6 +97,7 @@
         display: flex;
         justify-content: flex-end;
         width: 100%;
+        padding: 50px 0px;
         .horizontalImagesWrapper{
             width: 90%;
             overflow: auto;
@@ -105,7 +107,7 @@
                 width: 300px;
                 height: 300px;
                 display: inline-flex;
-                margin: 10px;
+                margin-right: 20px;
                 align-items: center;
                 justify-content: center;
             }

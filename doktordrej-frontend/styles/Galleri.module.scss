@@ -1,0 +1,39 @@
+@import 'mixins';
+
+
+.galleriWrapper {
+    color:#F8F7FF;
+    background-color: #798988;
+    min-height: 100vh;
+
+    .pageTitle {
+        display: flex;
+        flex-direction: column;
+        margin-top: -137.5px;            
+        padding-top: 30px ;
+        text-align: center;
+        @include phone {
+            font-size: 300%;
+            margin-top: -80px;
+        }
+        .galleriTitle {
+            font-size: 750%;
+            font-weight: 500;
+            margin: 10px;
+        }
+        .nameTitle {
+            font-size: 220%;
+            font-weight: 400;
+            margin: 10px;
+        }
+        
+        hr {
+        width: 90%;
+        height: 5px;
+        background-color: #F8F7FF;
+        border: none;
+        }
+    }
+}
+   
+

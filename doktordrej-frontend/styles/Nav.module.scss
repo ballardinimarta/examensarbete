@@ -14,12 +14,42 @@
     padding: 5px;
   }
 
-  .logo {
+  .close{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70px;
+    width: 80px;
     height: 80px;
+    background-color: #1e1e24; 
+    mask: url('./../public/close.svg') no-repeat center / contain;
+    -webkit-mask: url('./../public/close.svg') no-repeat center / contain;
+  }
+  .logoDark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: #1e1e24; 
+    mask: url('./../public/logo.svg') no-repeat center / contain;
+    -webkit-mask: url('./../public/logo.svg') no-repeat center / contain;
+
+    @include phone {
+     width: 50px;
+     height: 50px;
+
+    }
+  }
+  .logoLight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: #F8F7FF; 
+    mask: url('./../public/logo.svg') no-repeat center / contain;
+    -webkit-mask: url('./../public/logo.svg') no-repeat center / contain;
+
     @include phone {
      width: 50px;
      height: 50px;

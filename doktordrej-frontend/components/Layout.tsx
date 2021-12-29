@@ -10,7 +10,7 @@ interface ILayoutProps {
 function Layout(props: ILayoutProps) {
     return (
         <>
-            <Nav/>
+            {/* <Nav/> */}
             <div className={LayoutStyles.container}>
                 <main>{props.children}</main>
             </div>
