@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import useFetch from '../hooks/useFetch';
 import IArticle from '../interfaces/Article';
 import ArticleCard from './ArticleCard';
 import styles from '../styles/Shop.module.scss'
-import {FaAngleDown, FaAngleUp} from 'react-icons/fa';
+import {FaAngleDown, FaAngleUp, FaAngleLeft, FaAngleRight} from 'react-icons/fa';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
@@ -13,14 +13,18 @@ interface ICategory {
         name: string
     }
 }
+
 function Articles() {
+    const [pageSize, setPageSize] = useState('1')
     const [dropdown, setDropdown] = useState(false);
-    const [endpoint, setEndpoint] = useState('/api/articles?populate=*&pagination[pageSize]=1')
+    const [endpoint, setEndpoint] = useState('/api/articles?pagination[page]=1&pagination[pageSize]='+pageSize+'&populate=*')
     const [category, setCategory] = useState('Alla')
     const categories = useFetch('/api/categories')
+
     const {data , error, loading} = useFetch(endpoint)
     if (error) return <p>Error :(</p>
-
+    // console.log(page, data.meta.pagination.pageCount);
+    
     return (
         <>
         <div className={styles.categoryButton} onClick={()=> {setDropdown(!dropdown)}}>
@@ -32,13 +36,15 @@ function Articles() {
         <div className={styles.dropdown}>
             <ul>
                 <li key="0" onClick={()=>{
-                        setEndpoint('/api/articles?populate=*')
+                        setPageSize('1')
+                        setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=1&populate=*')
                         setCategory('Alla')
 
                     }}>Alla</li>
                 {categories.data.data.map((category: ICategory) => {
                     return <li key={category.id.toString()} onClick={()=>{
-                        setEndpoint('/api/articles?populate=*&filters[category][id][$eq]=' + category.id)
+                        setPageSize('1')
+                        setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=1&populate=*&filters[category][id][$eq]=' + category.id)
                         setCategory(category.attributes.name)
                     }}>{category.attributes.name}</li>
                 })}
@@ -50,6 +56,20 @@ function Articles() {
             <div className={styles.articlesContainer}>
                 {data ? data.data.map((article: IArticle) => {return(<ArticleCard key={article.id.toString()} article={article}/>)}) : <p>Sorry something went wrong :(</p>}
             </div>
+        </div>
+        
+        <div className={styles.pagContainer}>
+            {data ? 
+             Number(pageSize) >= Number(data.meta.pagination.total) ?
+           <p></p>
+            :  <button className='blackButton' onClick={() => {
+                let page = ((Number(pageSize)+10).toString())
+                setPageSize(page)
+                setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]='+page+'&populate=*')
+
+            }}>Visa mer!</button>
+            : null}
+            
         </div>
         </>
     )

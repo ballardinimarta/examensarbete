@@ -11,7 +11,8 @@
   z-index: 2;
 
   @include phone {
-    padding: 5px;
+    padding: 0px;
+    margin: 10px;
   }
 
   .close{
@@ -23,6 +24,11 @@
     background-color: #1e1e24; 
     mask: url('./../public/close.svg') no-repeat center / contain;
     -webkit-mask: url('./../public/close.svg') no-repeat center / contain;
+    @include phone {
+      width: 60px;
+      height: 60px;
+ 
+     }
   }
   .logoDark {
     display: flex;
@@ -35,10 +41,10 @@
     -webkit-mask: url('./../public/logo.svg') no-repeat center / contain;
 
     @include phone {
-     width: 50px;
-     height: 50px;
-
-    }
+      width: 60px;
+      height: 60px;
+ 
+     }
   }
   .logoLight {
     display: flex;
@@ -51,8 +57,8 @@
     -webkit-mask: url('./../public/logo.svg') no-repeat center / contain;
 
     @include phone {
-     width: 50px;
-     height: 50px;
+     width: 60px;
+     height: 60px;
 
     }
   }

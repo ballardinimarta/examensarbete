@@ -13,18 +13,23 @@
         padding-top: 30px ;
         text-align: center;
         @include phone {
-            font-size: 300%;
-            margin-top: -80px;
+            margin-top: -90px;
         }
         .galleriTitle {
             font-size: 750%;
             font-weight: 500;
             margin: 10px;
+            @include phone {
+                font-size: 300%;
+            }
         }
         .nameTitle {
             font-size: 220%;
             font-weight: 400;
             margin: 10px;
+            @include phone {
+                font-size: 100%;
+            }
         }
         
         hr {

@@ -4,7 +4,6 @@ import Image from 'next/image'
 
 import { useEffect, useState } from 'react'
 import logo from './../public/logo.svg'
-import close from './../public/close.svg'
 import { useRouter } from 'next/router'
 
 interface INavProps {
@@ -23,7 +22,6 @@ function Nav(props: INavProps) {
             <div className={ toggle ? NavStyles.close : props.dark ? NavStyles.logoDark : NavStyles.logoLight} onClick={() => {
                 setToggle(!toggle)
             }}>
-                {/* <Image  src={ toggle ? close : logo } alt="" /> */}
             </div>
         </div>
         {toggle ? 
