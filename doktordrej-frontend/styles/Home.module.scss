@@ -102,15 +102,38 @@
             width: 90%;
             overflow: auto;
             white-space: nowrap;
-            .testdiv{
-                background-color: black;
+            .border {
+                border: 3px solid #1e1e24;
+            }
+            .imgContainer{
+                position: relative;
+                background-color: #f8f7ff;
                 width: 300px;
                 height: 300px;
                 display: inline-flex;
                 margin-right: 20px;
-                align-items: center;
+                align-items: flex-end;
                 justify-content: center;
+                @include phone {
+                    width: 250px;
+                    height: 250px;
+                }
+                img {
+                    width: 100%;
+                }
+                a {
+                    padding: 100px 0px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    cursor: pointer;
+                    color: #1e1e24;
+                    font-size: 25px;
+                    font-weight: 500;
+                }
             }
+            
         }
         
     }

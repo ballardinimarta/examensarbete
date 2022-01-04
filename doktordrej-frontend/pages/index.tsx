@@ -11,15 +11,16 @@ const Home: NextPage = () => {
   const [darkLogoColor, setDarkLogoColor] = useState(false)
   
   function scrollChangeColor() {
-    let aboutme = document.querySelector('#aboutMe')!.getBoundingClientRect(); 
-    console.log(aboutme)
-
-    if (aboutme.top <= 0 ) {
-          setDarkLogoColor(true);
-        } else {
-          setDarkLogoColor(false);
-        } 
-  }
+    if (document.querySelector('#aboutMe')) {
+      let aboutme = document.querySelector('#aboutMe')!.getBoundingClientRect();   
+      if (aboutme.top <= 0 ) {
+            setDarkLogoColor(true);
+          } else {
+            setDarkLogoColor(false);
+          } 
+    }
+    }
+   
   useEffect(() => {
     window.addEventListener('scroll', scrollChangeColor, true);
   })

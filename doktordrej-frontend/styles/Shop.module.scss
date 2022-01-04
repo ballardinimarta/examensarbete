@@ -1,52 +1,96 @@
 @import 'mixins';
-
-.categoryButton {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    span {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 90%;
-        font-size: 200%;
-        
-        @include phone {
+.optionsBar{
+    
+        .categoryButton {
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             justify-content: center;
-            font-size: 150%;
+            span {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 90%;
+                font-size: 200%;
+                
+                @include phone {
+                    justify-content: center;
+                    font-size: 150%;
+                    
+                }
+            }
+            
+          }
+        .dropdown {
+            margin: 20px 0px;
+            display: flex;
+            justify-content: center;
+            ul {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                list-style: none;
+                width: 90%;
+                margin: 0;
+                padding: 0;
+                li {
+                    width: 50%;
+                    border: 2px solid #f8f7ff;
+                    padding: 10px 20px;
+                    cursor: pointer;
+                    background-color: #1e1e24;
+                    color: #f8f7ff;
+                    font-size: 150%;
+                    @include phone {
+                        font-size: 100%;
+        
+                    }
+                }
+            }
+        
+    }
+        .searchButton {
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            span {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 90%;
+                font-size: 200%;
+                
+                @include phone {
+                    justify-content: center;
+                    font-size: 150%;
+                    
+                }
+            }
+            
+          }
+        .searchBar{
+            margin: 20px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            input {
+                width: 90%;
+                border: 1px solid #1e1e24;
+                background-color: #fff;
+                padding: 5px;
+                font-family: inherit;
+                color:#1e1e24;
+                font-size: 20px;
+            }
             
         }
-    }
+    
     
 }
-.dropdown {
-    display: flex;
-    justify-content: center;
-    ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        list-style: none;
-        width: 90%;
-        margin: 0;
-        padding: 0;
-        li {
-            width: 50%;
-            border: 2px solid #f8f7ff;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #1e1e24;
-            color: #f8f7ff;
-            font-size: 150%;
-            @include phone {
-                font-size: 100%;
 
-            }
-        }
-    }
-}
 .articlesWrapper {
     display: flex;
     flex-direction: column;

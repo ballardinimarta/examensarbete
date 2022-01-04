@@ -5,7 +5,7 @@
     color:#F8F7FF;
     background-color: #798988;
     min-height: 100vh;
-
+  
     .pageTitle {
         display: flex;
         flex-direction: column;
@@ -37,6 +37,63 @@
         height: 5px;
         background-color: #F8F7FF;
         border: none;
+        }
+    }
+    .imageContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .instagramFeed{
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            
+            .instaImg{
+                position: relative;
+                margin: 5px;
+                display: flex;
+                flex-basis: calc(100%/5 - 10px) ;
+                justify-content: center;
+                align-items: center;
+                background-color: rgb(255, 255, 255);
+                @include phone {
+                    flex-basis: calc(100% - 10px) ;
+                }
+                img {
+                    width: 100%;
+                }
+                .overlay {
+                    transition: .5s ease;
+                    opacity: 0;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    background-color: #798988d5;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 10px;
+                    font-weight: 200;
+
+                    .overlayText {
+                        color: #F8F7FF;
+                        .overlayTextAt{
+                            font-weight: 600;
+                        }
+                        .overlayTextAt:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                .overlay:hover{
+                    opacity: 1;
+                }
+            }
+        }
+        button {
+            margin: 30px;
         }
     }
 }

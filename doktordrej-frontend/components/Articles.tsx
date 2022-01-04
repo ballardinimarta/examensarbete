@@ -15,41 +15,66 @@ interface ICategory {
 }
 
 function Articles() {
+    const [searchTerm, setSearchTerm] = useState('')
+
+    useEffect(() => {
+        const delayDebounceFn = setTimeout(() => {
+          console.log(searchTerm)
+          setEndpoint('/api/articles?_q='+searchTerm+'&pagination[page]=1&pagination[pageSize]=1&populate=*')
+        }, 2000)
+    
+        return () => clearTimeout(delayDebounceFn)
+    }, [searchTerm])
     const [pageSize, setPageSize] = useState('1')
     const [dropdown, setDropdown] = useState(false);
+    const [dropdownSearch, setDropdownSearch] = useState(false);
+
     const [endpoint, setEndpoint] = useState('/api/articles?pagination[page]=1&pagination[pageSize]='+pageSize+'&populate=*')
     const [category, setCategory] = useState('Alla')
     const categories = useFetch('/api/categories')
 
     const {data , error, loading} = useFetch(endpoint)
     if (error) return <p>Error :(</p>
-    // console.log(page, data.meta.pagination.pageCount);
-    
+
+        
     return (
         <>
-        <div className={styles.categoryButton} onClick={()=> {setDropdown(!dropdown)}}>
-            <span>Kategori: {category}
-                {dropdown ? <FaAngleUp/> : <FaAngleDown/> } 
-            </span> 
-        </div>
-        {dropdown ? 
-        <div className={styles.dropdown}>
-            <ul>
-                <li key="0" onClick={()=>{
-                        setPageSize('1')
-                        setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=1&populate=*')
-                        setCategory('Alla')
+        <div className={styles.optionsBar}>
+            <div className={styles.categoryButton} onClick={()=> {setDropdown(!dropdown)}}>
+                <span>Kategori: {category}
+                    {dropdown ? <FaAngleUp/> : <FaAngleDown/> } 
+                </span> 
+            </div>
+            {dropdown ? 
+            <div className={styles.dropdown}>
+                <ul>
+                    <li key="0" onClick={()=>{
+                            setPageSize('1')
+                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=1&populate=*')
+                            setCategory('Alla')
 
-                    }}>Alla</li>
-                {categories.data.data.map((category: ICategory) => {
-                    return <li key={category.id.toString()} onClick={()=>{
-                        setPageSize('1')
-                        setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=1&populate=*&filters[category][id][$eq]=' + category.id)
-                        setCategory(category.attributes.name)
-                    }}>{category.attributes.name}</li>
-                })}
-            </ul>
-        </div> : null}
+                        }}>Alla</li>
+                    {categories.data.data.map((category: ICategory) => {
+                        return <li key={category.id.toString()} onClick={()=>{
+                            setPageSize('1')
+                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=1&populate=*&filters[category][id][$eq]=' + category.id)
+                            setCategory(category.attributes.name)
+                        }}>{category.attributes.name}</li>
+                    })}
+                </ul>
+            </div> : null}
+        <div  className={styles.searchButton} onClick={()=> {setDropdownSearch(!dropdownSearch)}}>
+                <span>Sök 
+                    {dropdownSearch ? <FaAngleUp/> : <FaAngleDown/> } 
+                </span> 
+            </div>
+            {dropdownSearch ? 
+                <div className={styles.searchBar}>
+                    <input  type="text"  onChange={(e) => setSearchTerm(e.target.value)}/>
+                </div>
+            : null}
+       </div>
+        
         {loading ? 
         <div className="loaderContainer"><Loader type="ThreeDots" color="#1e1e24" height={80} width={80} /></div>: null}
         <div className={styles.articlesWrapper}>
