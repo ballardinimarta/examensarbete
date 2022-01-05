@@ -11,6 +11,7 @@ function ArticleCard(props: IArticleProps) {
     const production = process.env.NODE_ENV === "production";
     const baseUrl = production ? "https://www.yoursite.com" : "http://localhost:3001";
     const image = props.article.attributes.displayimage.data.attributes.formats.small
+    console.log(props)
     return (
         <div className={styles.articleContainer}>
             <Link href={'/artikel/'+ props.article.id} passHref>

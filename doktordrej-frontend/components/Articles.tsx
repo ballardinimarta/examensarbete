@@ -18,7 +18,7 @@ function Articles() {
     const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
-        const delayDebounceFn = setTimeout(() => {
+    const delayDebounceFn = setTimeout(() => {
           console.log(searchTerm)
           setEndpoint('/api/articles?_q='+searchTerm+'&pagination[page]=1&pagination[pageSize]=1&populate=*')
         }, 2000)
@@ -28,14 +28,12 @@ function Articles() {
     const [pageSize, setPageSize] = useState('1')
     const [dropdown, setDropdown] = useState(false);
     const [dropdownSearch, setDropdownSearch] = useState(false);
-
     const [endpoint, setEndpoint] = useState('/api/articles?pagination[page]=1&pagination[pageSize]='+pageSize+'&populate=*')
     const [category, setCategory] = useState('Alla')
     const categories = useFetch('/api/categories')
 
     const {data , error, loading} = useFetch(endpoint)
     if (error) return <p>Error :(</p>
-
         
     return (
         <>
