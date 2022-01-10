@@ -13,17 +13,19 @@ function ArticleCard(props: IArticleProps) {
     const image = props.article.attributes.displayimage.data.attributes.formats.small
     console.log(props)
     return (
+        <Link href={'/artikel/'+ props.article.id} passHref>
+
         <div className={styles.articleContainer}>
-            <Link href={'/artikel/'+ props.article.id} passHref>
                 <div  className={styles.articleImage}><Image src={baseUrl+image.url} alt=""  width={image.width} height={image.height}  /></div>
-            </Link>
             <span className={styles.articleTitle} >{props.article.attributes.name}</span>
             <div>
                 <span className={styles.articlePrice}>{props.article.attributes.price} kr</span>
-                {props.article.attributes.sold ? <span className={styles.articlePrice}>Slutsåld</span> : <button className={styles.shopButton} >Beställ här!</button>}
+                {props.article.attributes.sold ? <span className={styles.articlePrice}>Slutsåld</span> : null}
             </div>
             
         </div>
+        </Link>
+
     )
 }
 

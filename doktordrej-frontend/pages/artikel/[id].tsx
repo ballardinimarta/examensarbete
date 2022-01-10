@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Article from '../../components/Article';
+import Footer from '../../components/Footer';
 import Nav from '../../components/Nav';
 import useFetch from '../../hooks/useFetch'
 
@@ -20,6 +21,8 @@ const Artikel: NextPage = () => {
             :null}
            
         </div>
+        <Footer/>
+
         </>
     )
 }

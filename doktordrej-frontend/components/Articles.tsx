@@ -3,7 +3,8 @@ import useFetch from '../hooks/useFetch';
 import IArticle from '../interfaces/Article';
 import ArticleCard from './ArticleCard';
 import styles from '../styles/Shop.module.scss'
-import {FaAngleDown, FaAngleUp, FaAngleLeft, FaAngleRight} from 'react-icons/fa';
+import {FaAngleDown, FaAngleUp} from 'react-icons/fa';
+import {GrClose} from 'react-icons/gr'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
@@ -20,12 +21,12 @@ function Articles() {
     useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
           console.log(searchTerm)
-          setEndpoint('/api/articles?_q='+searchTerm+'&pagination[page]=1&pagination[pageSize]=1&populate=*')
-        }, 2000)
+          setEndpoint('/api/articles?_q='+searchTerm+'&pagination[page]=1&pagination[pageSize]=10&populate=*')
+        }, 1500)
     
         return () => clearTimeout(delayDebounceFn)
     }, [searchTerm])
-    const [pageSize, setPageSize] = useState('1')
+    const [pageSize, setPageSize] = useState('10')
     const [dropdown, setDropdown] = useState(false);
     const [dropdownSearch, setDropdownSearch] = useState(false);
     const [endpoint, setEndpoint] = useState('/api/articles?pagination[page]=1&pagination[pageSize]='+pageSize+'&populate=*')
@@ -48,14 +49,14 @@ function Articles() {
                 <ul>
                     <li key="0" onClick={()=>{
                             setPageSize('1')
-                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=1&populate=*')
+                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=10&populate=*')
                             setCategory('Alla')
 
                         }}>Alla</li>
                     {categories.data.data.map((category: ICategory) => {
                         return <li key={category.id.toString()} onClick={()=>{
                             setPageSize('1')
-                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=1&populate=*&filters[category][id][$eq]=' + category.id)
+                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=10&populate=*&filters[category][id][$eq]=' + category.id)
                             setCategory(category.attributes.name)
                         }}>{category.attributes.name}</li>
                     })}
@@ -68,7 +69,9 @@ function Articles() {
             </div>
             {dropdownSearch ? 
                 <div className={styles.searchBar}>
-                    <input  type="text"  onChange={(e) => setSearchTerm(e.target.value)}/>
+                    <input  type="text"  onChange={(e) => setSearchTerm(e.target.value)} value={searchTerm}/> <GrClose onClick={() => {
+                        setSearchTerm('')
+                    }}/>
                 </div>
             : null}
        </div>

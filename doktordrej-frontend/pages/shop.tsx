@@ -3,6 +3,7 @@ import Articles from '../components/Articles'
 import styles from '../styles/Shop.module.scss'
 import Head from 'next/head'
 import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 
 const Shop: NextPage = () => {
     return (
@@ -15,6 +16,8 @@ const Shop: NextPage = () => {
             <div className="pageTitle"><span>Shop</span> <hr></hr> </div>
             <Articles/>
         </div>
+        <Footer/>
+
         </>
     )
 }

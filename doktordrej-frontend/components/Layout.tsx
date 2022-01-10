@@ -1,7 +1,5 @@
 import LayoutStyles from './../styles/Layout.module.scss'
 import React from 'react'
-import Nav from './Nav'
-
 interface ILayoutProps {
     children?:
     | React.ReactChild

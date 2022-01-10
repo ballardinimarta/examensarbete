@@ -3,10 +3,14 @@ import Link from 'next/link'
 import {FaInstagram,FaPinterest} from 'react-icons/fa';
 import {HiOutlineMail} from 'react-icons/hi'
 import {GrUserAdmin} from 'react-icons/gr'
-import styles from './../styles/Home.module.scss'
 function Footer() {
+    const production = process.env.NODE_ENV === "production";
+    const baseUrl = production
+      ? "https://www.yoursite.com"
+      : "http://localhost:3001";
+  
     return (
-        <div className={styles.footer}>
+        <div className='footer'>
             <ul>
                 <li>
                     <Link href="https://instagram.com/doktor.drej" passHref>
@@ -30,7 +34,7 @@ function Footer() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="http://localhost:3001/admin" passHref>
+                    <Link href={baseUrl +"/admin"} passHref>
                         <div>
                             <GrUserAdmin/> 
                         </div>
