@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "12.19.0"
+  },
   "scripts": {
     "frontend": "cd doktordrej-frontend && npm run dev",
     "backend": "cd doktordrej-backend && npm run develop",
