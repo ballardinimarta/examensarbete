@@ -86,7 +86,7 @@ function Articles() {
         
         <div className={styles.pagContainer}>
             {data ? 
-             Number(pageSize) >= Number(data.meta.pagination.total) ?
+             Number(pageSize) >= data.meta.pagination.total ?
            <p></p>
             :  <button className='blackButton' onClick={() => {
                 let page = ((Number(pageSize)+10).toString())

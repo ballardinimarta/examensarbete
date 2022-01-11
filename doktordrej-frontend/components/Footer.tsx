@@ -4,11 +4,8 @@ import {FaInstagram,FaPinterest} from 'react-icons/fa';
 import {HiOutlineMail} from 'react-icons/hi'
 import {GrUserAdmin} from 'react-icons/gr'
 function Footer() {
-    const production = process.env.NODE_ENV === "production";
-    const baseUrl = production
-      ? "https://www.doktordrej.herokuapp.com"
-      : "http://localhost:3001";
-  
+    const baseUrl = "https://doktordrej-backend.herokuapp.com"
+
     return (
         <div className='footer'>
             <ul>

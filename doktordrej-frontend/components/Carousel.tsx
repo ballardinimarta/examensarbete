@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -17,11 +18,8 @@ interface ICarouselProps {
   imageList: IImage[];
 }
 function Carousel(props: ICarouselProps) {
-  const production = process.env.NODE_ENV === "production";
-  const baseUrl = production
-    ? "https://doktordrej-backend.herokuapp.com"
-    : "http://localhost:3001";
-
+  const baseUrl = "https://doktordrej-backend.herokuapp.com"
+  
   var settings = {
     dots: true,
     infinite: true,
@@ -33,7 +31,7 @@ function Carousel(props: ICarouselProps) {
     <Slider {...settings}>
       {props.imageList.map((image: IImage, i: number) => {
         return (
-          <Image
+          <img
             key={i + 1}
             src={baseUrl + image.attributes.url}
             alt=""
