@@ -35,7 +35,7 @@ function GalleriCard() {
                     }
                         
                         <div className={`${styles.imgContainer} ${styles.border}`}>
-                                <a href="/galleri">Till Galleriet!</a>
+                                <Link href="/galleri">Till Galleriet!</Link>
                         </div>
                     </div>
             </div>
