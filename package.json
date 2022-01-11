@@ -6,6 +6,8 @@
   "scripts": {
     "frontend": "cd doktordrej-frontend && npm run dev",
     "backend": "cd doktordrej-backend && npm run develop",
+    "build": "cd doktordrej-frontend && npm run build",
+    "start": "cd doktordrej-backend && npm start",
     "unittest": "cd doktordrej-frontend && npx cypress open",
     "componenttest": "cd doktordrej-frontend && npx cypress open-ct"
 
