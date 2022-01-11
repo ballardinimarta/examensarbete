@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 const useFetch = (url: string) => {
     const production = process.env.NODE_ENV === "production";
-    const baseUrl = production ? "https://www.doktordrej-backend.herokuapp.com" : "http://192.168.10.214:3001";
+    const baseUrl = production ? "https://doktordrej-backend.herokuapp.com" : "http://192.168.10.214:3001";
     const [data, setData] = useState<any>()
     const [error, setError] = useState<any>()
     const [loading, setLoading] = useState(false)
