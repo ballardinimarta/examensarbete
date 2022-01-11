@@ -6,7 +6,7 @@ import {GrUserAdmin} from 'react-icons/gr'
 function Footer() {
     const production = process.env.NODE_ENV === "production";
     const baseUrl = production
-      ? "https://www.yoursite.com"
+      ? "https://www.doktordrej.herokuapp.com"
       : "http://localhost:3001";
   
     return (
