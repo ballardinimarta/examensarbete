@@ -19,7 +19,7 @@ interface ICarouselProps {
 function Carousel(props: ICarouselProps) {
   const production = process.env.NODE_ENV === "production";
   const baseUrl = production
-    ? "https://www.doktordrej.herokuapp.com"
+    ? "https://www.doktordrej-backend.herokuapp.com"
     : "http://localhost:3001";
 
   var settings = {
