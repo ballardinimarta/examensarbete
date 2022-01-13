@@ -70,7 +70,7 @@
                     width: 100%;
                     position: absolute;
                     top: 0;
-                    background-color: #798988d5;
+                    background-color: #798988e1;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -78,7 +78,14 @@
                     font-weight: 200;
 
                     .overlayText {
+                        height: 100%;
+                        width: 100%;
+                        overflow: auto;
+                        font-size: 80%;
                         color: #F8F7FF;
+                        @include phone {
+                            font-size: 100%;
+                        }
                         .overlayTextAt{
                             font-weight: 600;
                         }
