@@ -9,14 +9,13 @@ interface IArticleProps{
     article: IArticle
 }
 function ArticleCard(props: IArticleProps) {
-    const baseUrl = "https://doktordrej-backend.herokuapp.com" 
     const image = props.article.attributes.displayimage.data.attributes.formats.small
     console.log(props)
     return (
         <Link href={'/artikel/'+ props.article.id} passHref>
 
         <div className={styles.articleContainer}>
-                <div  className={styles.articleImage}><img src={baseUrl+image.url} alt=""  width={image.width} height={image.height}  /></div>
+                <div  className={styles.articleImage}><img src={image.url} alt=""  width={image.width} height={image.height}  /></div>
             <span className={styles.articleTitle} >{props.article.attributes.name}</span>
             <div>
                 <span className={styles.articlePrice}>{props.article.attributes.price} kr</span>

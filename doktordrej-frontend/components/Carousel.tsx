@@ -17,9 +17,7 @@ interface IImage {
 interface ICarouselProps {
   imageList: IImage[];
 }
-function Carousel(props: ICarouselProps) {
-  const baseUrl = "https://doktordrej-backend.herokuapp.com"
-  
+function Carousel(props: ICarouselProps) {  
   var settings = {
     dots: true,
     infinite: true,
@@ -33,7 +31,7 @@ function Carousel(props: ICarouselProps) {
         return (
           <img
             key={i + 1}
-            src={baseUrl + image.attributes.url}
+            src={image.attributes.url}
             alt=""
             width={image.attributes.width}
             height={image.attributes.height}
