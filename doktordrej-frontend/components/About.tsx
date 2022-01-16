@@ -4,15 +4,17 @@ import natalia from './../public/natalia.png'
 import åkerö from './../public/åkerö.png'
 import Image from 'next/image'
 import useFetch from '../hooks/useFetch'
+import Loader from 'react-loader-spinner'
 function About() {
     const {data, error, loading} = useFetch('/api/about-me-text')
-    console.log(data)
     return (
         <div className={styles.aboutMeSection} id="aboutMe">
             <div className={styles.aboutMeWrap}>
                 <span className="title">Om mig</span>
                 <div className={styles.aboutMeInfoContainer}>
                     <div className={styles.aboutMeText}>
+                    {loading ? 
+                        <div className="loaderContainer"><Loader type="ThreeDots" color="#1e1e24" height={80} width={80} /></div>: null}
                         {data ? <span>{data.data.attributes.text}</span> :null}
                            </div>
                     <div className={styles.aboutMeImages}>
