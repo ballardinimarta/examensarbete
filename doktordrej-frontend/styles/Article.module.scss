@@ -1,11 +1,13 @@
 @import 'mixins';
 
 .articleWrapper {
+    margin-top: -45px;
     display: flex;
     justify-content: center;
     @include phone {
         align-items: center;
-        
+        margin-top: 0px;
+
     }
     .articleContainer {
         margin: 20px;

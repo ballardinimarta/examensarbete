@@ -20,7 +20,7 @@ function Articles() {
 
     useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-          console.log(searchTerm)
+          setCategory('Alla')
           setEndpoint('/api/articles?_q='+searchTerm+'&pagination[page]=1&pagination[pageSize]=8&populate=*')
           setSearchLoad(false)
         }, 1500)
@@ -71,7 +71,7 @@ function Articles() {
             {dropdownSearch ? 
                 <div className={styles.searchBar}>
                     <input  type="text"  
-                        onChange={e => { setSearchTerm(e.target.value); setSearchLoad(true) }}
+                        onChange={e => { setSearchTerm(e.target.value); }}
                         value={searchTerm}/>
                     <GrClose onClick={() => {
                         setSearchLoad(true)
@@ -84,12 +84,13 @@ function Articles() {
         
         {loading || searchLoad ? 
         <div className="loaderContainer"><Loader type="TailSpin" color="#1e1e24" height={80} width={80} /></div>: 
+        null
+        }
         <div className={styles.articlesWrapper}>
             <div className={styles.articlesContainer}>
                 {data ? data.data.map((article: IArticle) => {return(<ArticleCard key={article.id.toString()} article={article}/>)}) :null}
             </div>
         </div>
-        }
 
         
         

@@ -5,6 +5,7 @@ import Footer from '../../components/Footer';
 import Nav from '../../components/Nav';
 import useFetch from '../../hooks/useFetch'
 
+
 const Artikel: NextPage = () => {
     const router = useRouter()
     const { id } = router.query  
