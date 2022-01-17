@@ -10,7 +10,6 @@ interface IArticleProps{
 }
 function ArticleCard(props: IArticleProps) {
     const image = props.article.attributes.displayimage.data.attributes.formats.small
-    console.log(props)
     return (
         <Link href={'/artikel/'+ props.article.id} passHref>
 

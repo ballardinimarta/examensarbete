@@ -37,8 +37,8 @@
     width: 80px;
     height: 80px;
     background-color: #1e1e24; 
-    mask: url('./../public/logo.svg') no-repeat center / contain;
-    -webkit-mask: url('./../public/logo.svg') no-repeat center / contain;
+    mask: url('./../public/bars.svg') no-repeat center / contain;
+    -webkit-mask: url('./../public/bars.svg') no-repeat center / contain;
 
     @include phone {
       width: 60px;
@@ -53,8 +53,8 @@
     width: 80px;
     height: 80px;
     background-color: #F8F7FF; 
-    mask: url('./../public/logo.svg') no-repeat center / contain;
-    -webkit-mask: url('./../public/logo.svg') no-repeat center / contain;
+    mask: url('./../public/bars.svg') no-repeat center / contain;
+    -webkit-mask: url('./../public/bars.svg') no-repeat center / contain;
 
     @include phone {
      width: 60px;

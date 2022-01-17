@@ -14,7 +14,7 @@ function About() {
                 <div className={styles.aboutMeInfoContainer}>
                     <div className={styles.aboutMeText}>
                     {loading ? 
-                        <div className="loaderContainer"><Loader type="ThreeDots" color="#1e1e24" height={80} width={80} /></div>: null}
+                        <div className="loaderContainer"><Loader type="TailSpin" color="#1e1e24" height={80} width={80} /></div>: null}
                         {data ? <span>{data.data.attributes.text}</span> :null}
                            </div>
                     <div className={styles.aboutMeImages}>

@@ -21,21 +21,22 @@ function Articles() {
     useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
           console.log(searchTerm)
-          setEndpoint('/api/articles?_q='+searchTerm+'&pagination[page]=1&pagination[pageSize]=10&populate=*')
+          setEndpoint('/api/articles?_q='+searchTerm+'&pagination[page]=1&pagination[pageSize]=8&populate=*')
+          setSearchLoad(false)
         }, 1500)
     
         return () => clearTimeout(delayDebounceFn)
     }, [searchTerm])
-    const [pageSize, setPageSize] = useState('10')
+    const [pageSize, setPageSize] = useState('8')
     const [dropdown, setDropdown] = useState(false);
     const [dropdownSearch, setDropdownSearch] = useState(false);
     const [endpoint, setEndpoint] = useState('/api/articles?pagination[page]=1&pagination[pageSize]='+pageSize+'&populate=*')
     const [category, setCategory] = useState('Alla')
-    const categories = useFetch('/api/categories')
+    const [searchLoad, setSearchLoad] = useState(false)
 
+    const categories = useFetch('/api/categories')
     const {data , error, loading} = useFetch(endpoint)
-    if (error) return <p>Error :(</p>
-        
+    if (error) return <p>Sorry something went wrong :( try to reload the page</p>
     return (
         <>
         <div className={styles.optionsBar}>
@@ -48,15 +49,15 @@ function Articles() {
             <div className={styles.dropdown}>
                 <ul>
                     <li key="0" onClick={()=>{
-                            setPageSize('1')
-                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=10&populate=*')
+                            setPageSize('8')
+                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=8&populate=*')
                             setCategory('Alla')
 
                         }}>Alla</li>
                     {categories.data.data.map((category: ICategory) => {
                         return <li key={category.id.toString()} onClick={()=>{
-                            setPageSize('1')
-                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=10&populate=*&filters[category][id][$eq]=' + category.id)
+                            setPageSize('8')
+                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=8&populate=*&filters[category][id][$eq]=' + category.id)
                             setCategory(category.attributes.name)
                         }}>{category.attributes.name}</li>
                     })}
@@ -69,27 +70,35 @@ function Articles() {
             </div>
             {dropdownSearch ? 
                 <div className={styles.searchBar}>
-                    <input  type="text"  onChange={(e) => setSearchTerm(e.target.value)} value={searchTerm}/> <GrClose onClick={() => {
+                    <input  type="text"  
+                        onChange={e => { setSearchTerm(e.target.value); setSearchLoad(true) }}
+                        value={searchTerm}/>
+                    <GrClose onClick={() => {
+                        setSearchLoad(true)
                         setSearchTerm('')
+                        setDropdownSearch(false)
                     }}/>
                 </div>
             : null}
        </div>
         
-        {loading ? 
-        <div className="loaderContainer"><Loader type="ThreeDots" color="#1e1e24" height={80} width={80} /></div>: null}
+        {loading || searchLoad ? 
+        <div className="loaderContainer"><Loader type="TailSpin" color="#1e1e24" height={80} width={80} /></div>: 
         <div className={styles.articlesWrapper}>
             <div className={styles.articlesContainer}>
-                {data ? data.data.map((article: IArticle) => {return(<ArticleCard key={article.id.toString()} article={article}/>)}) : <p>Sorry something went wrong :(</p>}
+                {data ? data.data.map((article: IArticle) => {return(<ArticleCard key={article.id.toString()} article={article}/>)}) :null}
             </div>
         </div>
+        }
+
+        
         
         <div className={styles.pagContainer}>
             {data ? 
              Number(pageSize) >= data.meta.pagination.total ?
            <p></p>
             :  <button className='blackButton' onClick={() => {
-                let page = ((Number(pageSize)+10).toString())
+                let page = ((Number(pageSize)+8).toString())
                 setPageSize(page)
                 setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]='+page+'&populate=*')
 
