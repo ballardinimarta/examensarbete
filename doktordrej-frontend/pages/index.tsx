@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import About from '../components/About'
 import Hero from '../components/Hero'
-import Head from 'next/head';
 import Footer from '../components/Footer'
 import GalleriCard from '../components/GalleriCard';
 import Nav from '../components/Nav';
@@ -26,10 +25,8 @@ const Home: NextPage = () => {
   })
   return (
     <>
-    <Head>
-      <title>Hem</title>
-    </Head>
-      <Nav dark={darkLogoColor}/>
+ 
+      <Nav dark={darkLogoColor} title='Hem'/>
       <Hero/>
       <About/>
       <GalleriCard/>

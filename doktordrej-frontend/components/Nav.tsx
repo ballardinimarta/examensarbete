@@ -1,13 +1,14 @@
 import NavStyles from './../styles/Nav.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
-
 import { useEffect, useState } from 'react'
 import logo from './../public/logo.svg'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 interface INavProps {
     dark: boolean
+    title: string
 }
 function Nav(props: INavProps) {
     const [toggle, setToggle] = useState(false)
@@ -18,6 +19,9 @@ function Nav(props: INavProps) {
     }, [router.asPath]);
     return (
         <>
+        <Head>
+            <title>{props.title}</title>
+        </Head>
         <div className={NavStyles.navBar}>
             <div className={ toggle ? NavStyles.close : props.dark ? NavStyles.logoDark : NavStyles.logoLight} onClick={() => {
                 setToggle(!toggle)

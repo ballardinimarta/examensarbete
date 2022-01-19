@@ -1,15 +1,11 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import Nav from '../components/Nav'
 import styles from './../styles/Galleri.module.scss'
 import InstagramFeed from '../components/InstagramFeed'
 const Galleri: NextPage = () => {
     return (
         <>
-        <Head>
-            <title>Galleri</title>
-        </Head>
-        <Nav dark={false}/>
+        <Nav dark={false} title='Galleri'/>
         <div className={styles.galleriWrapper}>
             <div className={styles.pageTitle}>
                 <span className={styles.galleriTitle}>Galleri</span> 
