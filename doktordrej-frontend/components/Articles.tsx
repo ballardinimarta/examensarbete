@@ -21,7 +21,7 @@ function Articles() {
     useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
           setCategory('Alla')
-          setEndpoint('/api/articles?_q='+searchTerm+'&pagination[page]=1&pagination[pageSize]=8&populate=*')
+          setEndpoint('/api/articles?_q='+searchTerm+'&pagination[page]=1&pagination[pageSize]=8&sort[0]=sold&populate=*')
           setSearchLoad(false)
         }, 1500)
     
@@ -30,7 +30,7 @@ function Articles() {
     const [pageSize, setPageSize] = useState('8')
     const [dropdown, setDropdown] = useState(false);
     const [dropdownSearch, setDropdownSearch] = useState(false);
-    const [endpoint, setEndpoint] = useState('/api/articles?pagination[page]=1&pagination[pageSize]='+pageSize+'&populate=*')
+    const [endpoint, setEndpoint] = useState('/api/articles?pagination[page]=1&pagination[pageSize]='+pageSize+'&sort[0]=sold&populate=*')
     const [category, setCategory] = useState('Alla')
     const [searchLoad, setSearchLoad] = useState(false)
 
@@ -50,14 +50,14 @@ function Articles() {
                 <ul>
                     <li key="0" onClick={()=>{
                             setPageSize('8')
-                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=8&populate=*')
+                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=8&sort[0]=sold&populate=*')
                             setCategory('Alla')
 
                         }}>Alla</li>
                     {categories.data.data.map((category: ICategory) => {
                         return <li key={category.id.toString()} onClick={()=>{
                             setPageSize('8')
-                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=8&populate=*&filters[category][id][$eq]=' + category.id)
+                            setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]=8&sort[0]=sold&populate=*&filters[category][id][$eq]=' + category.id)
                             setCategory(category.attributes.name)
                         }}>{category.attributes.name}</li>
                     })}
@@ -101,7 +101,7 @@ function Articles() {
             :  <button className='blackButton' onClick={() => {
                 let page = ((Number(pageSize)+8).toString())
                 setPageSize(page)
-                setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]='+page+'&populate=*')
+                setEndpoint('/api/articles?pagination[page]=1&pagination[pageSize]='+page+'&sort[0]=sold&populate=*')
 
             }}>Visa mer!</button>
             : null}
