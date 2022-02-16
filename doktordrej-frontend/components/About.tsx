@@ -19,7 +19,7 @@ function About() {
 	);
 	const Storyblok = new StoryblokClient({ accessToken: process.env.token });
 	useEffect(() => {
-		setRichTextHtml(Storyblok.richTextResolver.render(data?.story.content.text));
+		setRichTextHtml(Storyblok.richTextResolver.render(data?.story?.content.text));
 	}, [data]);
 	if (error) return <p>Sorry something went wrong :( try to reload the page</p>;
 	return (
