@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 
 const useFetch = (url: string) => {
-    const baseUrl = "https://doktordrej-backend.herokuapp.com"
-
+    // const baseUrl = "https://doktordrej-backend.herokuapp.com"
+    const baseUrl = "https://api.storyblok.com/v2/cdn/"
     const [data, setData] = useState<any>()
     const [error, setError] = useState<any>()
     const [loading, setLoading] = useState(false)

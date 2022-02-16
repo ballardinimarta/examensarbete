@@ -1,25 +1,22 @@
 interface IArticle {
-        "id": Number,
-        "attributes": {
-          "name": String,
-          "description": String,
-          "price": Number,
-          "sold": Boolean,
-          "publishedAt": String,
-          "displayimage": {
-            "data": any
+        id: Number;
+        name: string
+        content: {
+          name: String;
+          description: String;
+          price: string;
+          isSold: Boolean;
+          displayImage: {
+            id: number;
+            filename: string;
           },
-          "images": {
-            "data": any
-          },
-          "category": {
-            "data": {
-              "id": Number,
-              "attributes": {
-                "name": String,
-              }
-            }
-          }
+          images: [{
+            id: number;
+            filename: string;
+          }],
+          category: string[]
         }
+        slug: string;
+        full_slug: string;
 }
 export default IArticle

@@ -3,21 +3,16 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Image from 'next/image'
+import Image from "next/image";
 
 interface IImage {
   id: number;
-  attributes: {
-    width: number;
-    height: number;
-    formats: any;
-    url: string;
-  };
+  filename: string;
 }
 interface ICarouselProps {
   imageList: IImage[];
 }
-function Carousel(props: ICarouselProps) {  
+function Carousel(props: ICarouselProps) {
   var settings = {
     dots: true,
     infinite: true,
@@ -28,15 +23,7 @@ function Carousel(props: ICarouselProps) {
   return (
     <Slider {...settings}>
       {props.imageList.map((image: IImage, i: number) => {
-        return (
-          <img
-            key={i + 1}
-            src={image.attributes.url}
-            alt=""
-            width={image.attributes.width}
-            height={image.attributes.height}
-          />
-        );
+        return <img key={i + 1} src={image.filename} alt="" />;
       })}
     </Slider>
   );
