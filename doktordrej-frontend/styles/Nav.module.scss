@@ -1,113 +1,107 @@
 @import 'mixins';
 
 .navBar {
-  width: auto;
-  display: flex;
-  justify-content: flex-end;
-  padding: 20px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
-  z-index: 2;
+	width: auto;
+	display: flex;
+	justify-content: flex-end;
+	padding: 20px;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0px;
+	right: 0;
+	z-index: 2;
 
-  @include phone {
-    padding: 0px;
-    margin: 10px;
-  }
+	@include phone {
+		padding: 0px;
+		margin: 10px;
+	}
 
-  .close{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    background-color: #1e1e24; 
-    mask: url('./../public/close.svg') no-repeat center / contain;
-    -webkit-mask: url('./../public/close.svg') no-repeat center / contain;
-    @include phone {
-      width: 60px;
-      height: 60px;
- 
-     }
-  }
-  .logoDark {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    background-color: #1e1e24; 
-    mask: url('./../public/bars.svg') no-repeat center / contain;
-    -webkit-mask: url('./../public/bars.svg') no-repeat center / contain;
-
-    @include phone {
-      width: 60px;
-      height: 60px;
- 
-     }
-  }
-  .logoLight {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    background-color: #F8F7FF; 
-    mask: url('./../public/bars.svg') no-repeat center / contain;
-    -webkit-mask: url('./../public/bars.svg') no-repeat center / contain;
-
-    @include phone {
-     width: 60px;
-     height: 60px;
-
-    }
-  }
+	.close {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 80px;
+		background-color: #1e1e24;
+		mask: url('./../public/close.svg') no-repeat center / contain;
+		-webkit-mask: url('./../public/close.svg') no-repeat center / contain;
+		@include phone {
+			width: 60px;
+			height: 60px;
+		}
+	}
+	.logoDark {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 80px;
+		background-color: #1e1e24;
+		mask: url('./../public/bars.svg') no-repeat center / contain;
+		-webkit-mask: url('./../public/bars.svg') no-repeat center / contain;
+		@include phone {
+			width: 60px;
+			height: 60px;
+		}
+	}
+	.logoLight {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 80px;
+		background-color: #f8f7ff;
+		mask: url('./../public/bars.svg') no-repeat center / contain;
+		-webkit-mask: url('./../public/bars.svg') no-repeat center / contain;
+		@include phone {
+			width: 60px;
+			height: 60px;
+		}
+	}
 }
 .navContainer {
-  width: 100%;
-  height: 100vh;
-  background-color: #b1cc74;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  z-index: 1;
-  font-weight: 500;
-  @include phone {
-    height: 100vh;
-    padding-bottom: 20%;
-  }
-  ul {
-      padding: 0;
-      height: 80%;
-      list-style-type: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      li {
-        .logo {
-            width: 100px;
-            @include phone {
-                width: 80px;
-            }
-        }
+	width: 100%;
+	height: 100vh;
+	background-color: #89a091;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	z-index: 1;
+	font-weight: 500;
+	@include phone {
+		height: 100vh;
+		padding-bottom: 20%;
+	}
+	ul {
+		padding: 0;
+		height: 80%;
+		list-style-type: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		li {
+			.logo {
+				width: 100px;
+				@include phone {
+					width: 80px;
+				}
+			}
 
-        a {
-            font-size: 500%;
-            text-decoration: underline;
-            text-decoration-thickness: 3px;
-            text-underline-offset: 5px;
-            
-            @include phone {
-                font-size: 400%;
+			a {
+				font-size: 500%;
+				text-decoration: underline;
+				text-decoration-thickness: 3px;
+				text-underline-offset: 5px;
 
-            }
-        }
-      }
-  }
-  
-
+				@include phone {
+					font-size: 400%;
+				}
+			}
+		}
+	}
 }

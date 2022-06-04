@@ -1,91 +1,95 @@
 @import 'mixins';
-
+.backButton {
+	border: none;
+	background-color: transparent;
+	color: #1e1e24;
+	font-family: inherit;
+	font-size: 20px;
+	position: fixed;
+	top: 50px;
+	left: 20px;
+	z-index: 3;
+	@include phone {
+		top: 30px;
+	}
+}
 .articleWrapper {
-    margin-top: -45px;
-    display: flex;
-    justify-content: center;
-    @include phone {
-        align-items: center;
-        margin-top: 0px;
+	margin-top: -45px;
+	display: flex;
+	justify-content: center;
+	@include phone {
+		align-items: center;
+		margin-top: 0px;
+	}
+	.articleContainer {
+		margin: 20px;
+		width: 90%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		@include phone {
+			flex-direction: column;
+			align-items: center;
+			width: 80%;
+			margin: 0;
+		}
 
-    }
-    .articleContainer {
-        margin: 20px;
-        width: 90%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        @include phone {
-            flex-direction: column;
-            align-items: center;
-            width: 80%;
-            margin: 0;
-        }
-        
-       
-        .carouselContainer{
-            width: 40%;
-            margin: 20px;
-            @include phone {
-                width: 100%;
-            }
-            img {
-                width: 100%;
-                height: 100%;
-            }
-            
-        }
-        
-        .articleInfoContainer {
+		.carouselContainer {
+			width: 40%;
+			margin: 20px;
+			@include phone {
+				width: 100%;
+			}
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
 
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            @include phone {
-                width: 100%;
-                margin: 20px 0px;
-
-            }
-            .articleTitle{
-                font-weight: 500;
-                font-size: 170%;
-                padding: 10px 0px;
-                @include phone {
-                    font-size: 130%;
-                }
-            }
-            .articlePrice {
-                font-size: 130%;
-                @include phone {
-                    font-size: 100%;
-                }
-            }
-            .articleDescription {
-                font-size: 100%;
-                @include phone {
-                    font-size: 80%;
-                }
-            }
-            .shopButton {
-                border: none;
-                padding: 5px 10px;
-                border-radius: 10px;
-                background-color: #1e1e24;
-                color: #f8f7ff;
-                font-family: inherit;
-                font-size: 20px;
-            }
-            .shopButton:disabled {
-                border: none;
-                padding: 5px 10px;
-                border-radius: 10px;
-                background-color: #f8f7ff;
-                color: #1e1e24;
-                font-family: inherit;
-                font-size: 20px;
-            }
-        }
-        
-    }
+		.articleInfoContainer {
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			@include phone {
+				width: 100%;
+				margin: 20px 0px;
+			}
+			.articleTitle {
+				font-weight: 500;
+				font-size: 170%;
+				padding: 10px 0px;
+				@include phone {
+					font-size: 130%;
+				}
+			}
+			.articlePrice {
+				font-size: 130%;
+				@include phone {
+					font-size: 100%;
+				}
+			}
+			.articleDescription {
+				font-size: 100%;
+				@include phone {
+					font-size: 80%;
+				}
+			}
+			.shopButton {
+				margin-top: 10px;
+				border: none;
+				padding: 5px 10px;
+				border-radius: 10px;
+				background-color: #1e1e24;
+				color: #f8f7ff;
+				font-family: inherit;
+				font-size: 16px;
+			}
+			.shopButton:disabled {
+				border: 1px solid #1e1e24;
+				background-color: #f8f7ff;
+				color: #1e1e24;
+			}
+		}
+	}
 }
