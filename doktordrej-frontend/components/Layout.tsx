@@ -1,18 +1,14 @@
-import LayoutStyles from './../styles/Layout.module.scss'
-import React from 'react'
-interface ILayoutProps {
-    children?:
-    | React.ReactChild
-    | React.ReactChild[];
-}
-function Layout(props: ILayoutProps) {
-    return (
-        <>
-            <div className={LayoutStyles.container}>
-                <main>{props.children}</main>
-            </div>
-        </>
-    )
-}
+import LayoutStyles from './../styles/Layout.module.scss';
+import React, { FC } from 'react';
 
-export default Layout
+const Layout: FC = ({ children }) => {
+	return (
+		<>
+			<div className={LayoutStyles.container}>
+				<main>{children}</main>
+			</div>
+		</>
+	);
+};
+
+export default Layout;
