@@ -20,21 +20,19 @@
     "sass": "^1.45.0",
     "slick-carousel": "^1.8.1",
     "storyblok-js-client": "^4.2.1",
-    "storyblok-rich-text-react-renderer": "^2.5.2",
-    "typescript": "^4.7.3"
+    "storyblok-rich-text-react-renderer": "^2.5.2"
   },
   "devDependencies": {
     "@cypress/react": "^5.12.0",
     "@cypress/webpack-dev-server": "^1.8.0",
     "@types/mocha": "^9.0.0",
-    "@types/node": "^16.11.12",
-    "@types/react": "^18.0.1",
+    "@types/react": "18.0.1",
     "@types/react-slick": "^0.23.8",
     "cypress": "^9.2.0",
     "eslint": "8.4.1",
     "eslint-config-next": "12.0.7",
     "html-webpack-plugin": "^4.5.2",
-    "typescript": "^4.5.4",
+    "typescript": "^4.7.3",
     "webpack": "^4.46.0",
     "webpack-dev-server": "^3.11.3"
   },
