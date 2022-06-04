@@ -4,9 +4,6 @@ import IArticle from '../interfaces/Article';
 import ArticleCard from './ArticleCard';
 import styles from '../styles/Shop.module.scss';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
-import { GrClose } from 'react-icons/gr';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-
 interface ICategory {
 	uuid: string;
 	content: {
