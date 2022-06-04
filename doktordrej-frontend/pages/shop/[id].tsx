@@ -2,7 +2,6 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import Loader from 'react-loader-spinner';
 import Article from '../../components/Article';
 import Footer from '../../components/Footer';
 import Nav from '../../components/Nav';
@@ -28,7 +27,7 @@ const Artikel: NextPage = () => {
 				{data ? data.story ? <Article article={data.story} /> : null : null}
 				{loading ? (
 					<div className="loaderContainer">
-						<Loader type="TailSpin" color="#1e1e24" height={80} width={80} />
+						<p>Laddar...</p>
 					</div>
 				) : null}
 			</div>

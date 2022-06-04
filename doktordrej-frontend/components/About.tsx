@@ -4,7 +4,6 @@ import natalia from './../public/natalia.png';
 import åkerö from './../public/åkerö.png';
 import Image from 'next/image';
 import useFetch from '../hooks/useFetch';
-import Loader from 'react-loader-spinner';
 import StoryblokClient from 'storyblok-js-client';
 
 function About() {
@@ -30,7 +29,7 @@ function About() {
 					<div className={styles.aboutMeText}>
 						{loading ? (
 							<div className="loaderContainer">
-								<Loader type="TailSpin" color="#1e1e24" height={80} width={80} />
+								<p>Laddar...</p>
 							</div>
 						) : null}
 						{<div dangerouslySetInnerHTML={{ __html: richtextHtml }} />}

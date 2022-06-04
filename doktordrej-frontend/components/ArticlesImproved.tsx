@@ -6,7 +6,6 @@ import styles from '../styles/Shop.module.scss';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import { GrClose } from 'react-icons/gr';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import Loader from 'react-loader-spinner';
 
 interface ICategory {
 	uuid: string;
@@ -85,7 +84,7 @@ function ArticlesImproved() {
 
 			{loading ? (
 				<div className="loaderContainer">
-					<Loader type="TailSpin" color="#1e1e24" height={80} width={80} />
+					<p>Laddar...</p>
 				</div>
 			) : null}
 			<div className={styles.articlesWrapper}>
