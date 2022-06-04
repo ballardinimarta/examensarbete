@@ -12,7 +12,7 @@ interface ICategory {
 }
 
 function ArticlesImproved() {
-	let timestamp;
+	let timestamp = 0;
 	useEffect(() => {
 		timestamp = Date.now();
 	}, []);
