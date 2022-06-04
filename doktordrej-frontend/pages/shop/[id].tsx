@@ -17,9 +17,6 @@ const Artikel: NextPage = () => {
 	const { data, error, loading } = useFetch(
 		`stories/shop/${id}?cv=${timestamp}&token=${process.env.token}`
 	);
-	console.log(data);
-	console.log(error);
-
 	return (
 		<>
 			<Nav dark={true} title={data?.story?.content.name} />

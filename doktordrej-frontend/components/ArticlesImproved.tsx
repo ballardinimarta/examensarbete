@@ -12,13 +12,14 @@ interface ICategory {
 }
 
 function ArticlesImproved() {
+	const [articles, setArticles] = useState<IArticle[]>();
+	const [dropdown, setDropdown] = useState(false);
+	const [category, setCategory] = useState('Alla');
 	let timestamp = 0;
 	useEffect(() => {
 		timestamp = Date.now();
 	}, []);
-	const [articles, setArticles] = useState<IArticle[]>();
-	const [dropdown, setDropdown] = useState(false);
-	const [category, setCategory] = useState('Alla');
+
 	const { data, error, loading } = useFetch(
 		`stories?starts_with=shop&cv=${timestamp}&token=${process.env.token}`
 	);
@@ -26,10 +27,10 @@ function ArticlesImproved() {
 	const categories = useFetch(
 		`stories?starts_with=categories&cv=${timestamp}&token=${process.env.token}`
 	);
-	if (error) return <p>Sorry something went wrong :( try to reload the page</p>;
 	useEffect(() => {
 		setArticles(data?.stories);
 	}, [data]);
+	if (error) return <p>Sorry something went wrong :( try to reload the page</p>;
 
 	return (
 		<>
