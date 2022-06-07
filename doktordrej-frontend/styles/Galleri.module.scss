@@ -1,108 +1,103 @@
 @import 'mixins';
 
-
 .galleriWrapper {
-    color:#F8F7FF;
-    background-color: #798988;
-    min-height: 100vh;
-  
-    .pageTitle {
-        display: flex;
-        flex-direction: column;
-        margin-top: -137.5px;            
-        padding-top: 30px ;
-        text-align: center;
-        @include phone {
-            margin-top: -90px;
-        }
-        .galleriTitle {
-            font-size: 750%;
-            font-weight: 500;
-            margin: 10px;
-            @include phone {
-                font-size: 300%;
-            }
-        }
-        .nameTitle {
-            font-size: 220%;
-            font-weight: 400;
-            margin: 10px;
-            @include phone {
-                font-size: 100%;
-            }
-        }
-        
-        hr {
-        width: 90%;
-        height: 5px;
-        background-color: #F8F7FF;
-        border: none;
-        }
-    }
-    .imageContainer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        .instagramFeed{
-            width: 90%;
-            display: flex;
-            flex-wrap: wrap;
-            
-            .instaImg{
-                position: relative;
-                margin: 5px;
-                display: flex;
-                flex-basis: calc(100%/5 - 10px) ;
-                justify-content: flex-end;
-                align-items: center;
-                background-color: rgba(255, 255, 255, 0.5);
-                @include phone {
-                    flex-basis: calc(100% - 10px) ;
-                }
-                img {
-                    width: 100%;
-                }
-                .overlay {
-                    transition: .5s ease;
-                    opacity: 0;
-                    height: 100%;
-                    width: 100%;
-                    position: absolute;
-                    top: 0;
-                    background-color: #798988e1;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 10px;
-                    font-weight: 200;
+	color: #f8f7ff;
+	background-color: #798988;
+	min-height: 100vh;
+	margin-top: -20px;
 
-                    .overlayText {
-                        height: 100%;
-                        width: 100%;
-                        overflow: auto;
-                        font-size: 80%;
-                        color: #F8F7FF;
-                        @include phone {
-                            font-size: 100%;
-                        }
-                        .overlayTextAt{
-                            font-weight: 600;
-                        }
-                        .overlayTextAt:hover{
-                            text-decoration: underline;
-                        }
-                    }
-                }
-                .overlay:hover{
-                    opacity: 1;
-                }
-            }
-        }
-        button {
-            margin: 30px;
-        }
-    }
+	.pageTitle {
+		display: flex;
+		flex-direction: column;
+		padding-top: 30px;
+		text-align: center;
+
+		.galleriTitle {
+			font-size: 750%;
+			font-weight: 500;
+			margin: 10px;
+			@include phone {
+				font-size: 300%;
+			}
+		}
+		.nameTitle {
+			font-size: 220%;
+			font-weight: 400;
+			margin: 10px;
+			@include phone {
+				font-size: 100%;
+			}
+		}
+
+		hr {
+			width: 90%;
+			height: 5px;
+			background-color: #f8f7ff;
+			border: none;
+		}
+	}
+	.imageContainer {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		.instagramFeed {
+			width: 90%;
+			display: flex;
+			flex-wrap: wrap;
+
+			.instaImg {
+				position: relative;
+				margin: 5px;
+				display: flex;
+				flex-basis: calc(100% / 5 - 10px);
+				justify-content: flex-end;
+				align-items: center;
+				background-color: rgba(255, 255, 255, 0.5);
+				@include phone {
+					flex-basis: calc(100% - 10px);
+				}
+				img {
+					width: 100%;
+				}
+				.overlay {
+					transition: 0.5s ease;
+					opacity: 0;
+					height: 100%;
+					width: 100%;
+					position: absolute;
+					top: 0;
+					background-color: #798988e1;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 10px;
+					font-weight: 200;
+
+					.overlayText {
+						height: 100%;
+						width: 100%;
+						overflow: auto;
+						font-size: 80%;
+						color: #f8f7ff;
+						@include phone {
+							font-size: 100%;
+						}
+						.overlayTextAt {
+							font-weight: 600;
+						}
+						.overlayTextAt:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+				.overlay:hover {
+					opacity: 1;
+				}
+			}
+		}
+		button {
+			margin: 30px;
+		}
+	}
 }
-   
-

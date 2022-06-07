@@ -1,19 +1,18 @@
 @import 'mixins';
 
 .navBar {
-	width: auto;
+	width: 100px;
 	display: flex;
 	justify-content: flex-end;
-	padding: 20px;
-	position: -webkit-sticky;
-	position: sticky;
+	position: fixed;
 	top: 0px;
-	right: 0;
+	right: 0px;
 	z-index: 2;
 
 	@include phone {
 		padding: 0px;
 		margin: 10px;
+		width: 70px;
 	}
 
 	.close {
