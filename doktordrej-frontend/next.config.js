@@ -4,7 +4,8 @@ const webpack = require('webpack')
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'a.storyblok.com'],
+    
   },
   webpack: (config) => {
     config.plugins.push(

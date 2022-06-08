@@ -1,173 +1,156 @@
 @import 'mixins';
-.optionsBar{
-    
-        .categoryButton {
-            cursor: pointer;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            span {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                width: 90%;
-                font-size: 200%;
-                
-                @include phone {
-                    justify-content: flex-start;
-                    font-size: 150%;
-                    
-                }
-            }
-            
-          }
-        .dropdown {
-            margin: 20px 0px;
-            display: flex;
-            justify-content: center;
-            ul {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                list-style: none;
-                width: 90%;
-                margin: 0;
-                padding: 0;
-                li {
-                    width: 50%;
-                    border: 2px solid #f8f7ff;
-                    padding: 10px 20px;
-                    cursor: pointer;
-                    background-color: #1e1e24;
-                    color: #f8f7ff;
-                    font-size: 150%;
-                    @include phone {
-                        font-size: 100%;
-        
-                    }
-                }
-            }
-        
-    }
-        .searchButton {
-            cursor: pointer;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            span {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                width: 90%;
-                font-size: 200%;
-                
-                @include phone {
-                    justify-content: flex-start;
-                    font-size: 150%;
-                    
-                }
-            }
-            
-          }
-        .searchBar{
-            margin: 20px 0px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            input {
-                width: 85%;
-                border: 1px solid #1e1e24;
-                background-color: #fff;
-                padding: 5px;
-                font-family: inherit;
-                color:#1e1e24;
-                font-size: 20px;
-            }
-            svg {
-                cursor: pointer;
-                width: 5%;
-                margin: 5px;
-            }
-            
-        }
-    
-    
+.optionsBar {
+	.categoryButton {
+		cursor: pointer;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		span {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			width: 90%;
+			font-size: 200%;
+
+			@include phone {
+				justify-content: flex-start;
+				font-size: 150%;
+			}
+		}
+	}
+	.dropdown {
+		margin: 20px 0px;
+		display: flex;
+		justify-content: center;
+		ul {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			list-style: none;
+			width: 90%;
+			margin: 0;
+			padding: 0;
+			li {
+				width: 50%;
+				border: 2px solid #f8f7ff;
+				padding: 10px 20px;
+				cursor: pointer;
+				background-color: #1e1e24;
+				color: #f8f7ff;
+				font-size: 150%;
+				@include phone {
+					font-size: 100%;
+				}
+			}
+		}
+	}
+	.searchButton {
+		cursor: pointer;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		span {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			width: 90%;
+			font-size: 200%;
+
+			@include phone {
+				justify-content: flex-start;
+				font-size: 150%;
+			}
+		}
+	}
+	.searchBar {
+		margin: 20px 0px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		input {
+			width: 85%;
+			border: 1px solid #1e1e24;
+			background-color: #fff;
+			padding: 5px;
+			font-family: inherit;
+			color: #1e1e24;
+			font-size: 20px;
+		}
+		svg {
+			cursor: pointer;
+			width: 5%;
+			margin: 5px;
+		}
+	}
 }
 
 .articlesWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    
-    .articlesContainer {
-        width: 90%;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-wrap: wrap;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-        @include phone {
-            flex-direction: column;
-            align-items: center;
-        }
-        .articleContainer {
-            cursor: pointer;
-            margin: 30px;
-            width: 20%;
-            display: flex;
-            flex-direction: column;
-            @include phone {
-                margin: 20px 0px;
-                width: 95%;
-                flex-direction: column;
-            }
-            .articleImage{
-                width: 100%;
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-            .articleTitle{
-                font-weight: 500;
-                font-size: 150%;
-                padding: 10px 0px;
-            }
-            div {
-                display: flex;
-                justify-content: space-between;
-                .articlePrice {
-                    font-size: 130%;
-                }
-                .shopButton {
-                    border: none;
-                    padding: 5px 10px;
-                    border-radius: 10px;
-                    background-color: #1e1e24;
-                    color: #f8f7ff;
-                    font-family: inherit;
-                    font-size: 20px;
-                }
-                .shopButton:disabled {
-                    border: none;
-                    padding: 5px 10px;
-                    border-radius: 10px;
-                    background-color: #f8f7ff;
-                    color: #1e1e24;
-                    font-family: inherit;
-                    font-size: 20px;
-                }
-            }
-            
-        }
-    }
+	.articlesContainer {
+		width: 90%;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+		@include phone {
+			flex-direction: column;
+			align-items: center;
+		}
+		.articleContainer {
+			cursor: pointer;
+			margin: 30px;
+			display: flex;
+			flex-direction: column;
+			@include phone {
+				margin: 20px 0px;
+				flex-direction: column;
+			}
+			.articleImage {
+				width: 100%;
+				img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.articleTitle {
+				font-weight: 500;
+				font-size: 150%;
+				padding: 10px 0px;
+			}
+			div {
+				display: flex;
+				justify-content: space-between;
+				.articlePrice {
+					font-size: 130%;
+				}
+				.shopButton {
+					border: none;
+					padding: 5px 10px;
+					border-radius: 10px;
+					background-color: #1e1e24;
+					color: #f8f7ff;
+					font-family: inherit;
+					font-size: 20px;
+				}
+				.shopButton:disabled {
+					border: none;
+					padding: 5px 10px;
+					border-radius: 10px;
+					background-color: #f8f7ff;
+					color: #1e1e24;
+					font-family: inherit;
+					font-size: 20px;
+				}
+			}
+		}
+	}
 }
 .pagContainer {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }

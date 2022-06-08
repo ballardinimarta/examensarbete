@@ -14,7 +14,7 @@ function Article(props: IArticleProps) {
 	if (!imagelist.includes(props.article.content.displayImage)) {
 		imagelist.unshift(props.article.content.displayImage);
 	}
-	console.log(imagelist);
+	console.log(props);
 
 	return (
 		<>
@@ -39,7 +39,7 @@ function Article(props: IArticleProps) {
 								passHref
 							>
 								<button disabled className={styles.shopButton}>
-									Går ej att beställa för tillfället
+									{props.article.content.buttonText}
 								</button>
 							</Link>
 						)}

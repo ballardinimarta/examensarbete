@@ -14,9 +14,7 @@ const Artikel: NextPage = () => {
 	useEffect(() => {
 		timestamp = Date.now();
 	}, []);
-	const { data, error, loading } = useFetch(
-		`stories/shop/${id}?cv=${timestamp}&token=${process.env.token}`
-	);
+	const { data, error, loading } = useFetch(`shop/${id}`);
 	return (
 		<>
 			<Nav dark={true} title={data?.story?.content.name} />

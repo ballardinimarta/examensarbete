@@ -4,8 +4,6 @@ import IArticle from '../interfaces/Article';
 import ArticleCard from './ArticleCard';
 import styles from '../styles/Shop.module.scss';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
-import { GrClose } from 'react-icons/gr';
-
 interface ICategory {
 	uuid: string;
 	content: {
@@ -14,43 +12,19 @@ interface ICategory {
 }
 
 function Articles() {
-	const [searchTerm, setSearchTerm] = useState('');
-
-	useEffect(() => {
-		const delayDebounceFn = setTimeout(() => {
-			setCategory('Alla');
-			setEndpoint(
-				`stories?filter_query[name][like]=*${searchTerm}*&per_page=${pageSize}&page=1&starts_with=shop&cv=${timestamp}&token=${process.env.token}&sort_by=content.isSold:asc`
-			);
-			setSearchLoad(false);
-		}, 1500);
-
-		return () => clearTimeout(delayDebounceFn);
-	}, [searchTerm]);
-
-	let timestamp = 0;
-	useEffect(() => {
-		timestamp = Date.now();
-	}, []);
-
-	const [pageSize, setPageSize] = useState('8');
+	const [articles, setArticles] = useState<IArticle[]>();
 	const [dropdown, setDropdown] = useState(false);
-	const [dropdownSearch, setDropdownSearch] = useState(false);
-	const [endpoint, setEndpoint] = useState(
-		`stories?per_page=${pageSize}&page=1&starts_with=shop&cv=${timestamp}&token=${process.env.token}&sort_by=content.isSold:asc`
-	);
 	const [category, setCategory] = useState('Alla');
-	const [searchLoad, setSearchLoad] = useState(false);
-	const allArticles = useFetch(
-		`stories?starts_with=articles&cv=${timestamp}&token=${process.env.token}`
-	);
-	const categories = useFetch(
-		`stories?starts_with=categories&cv=${timestamp}&token=${process.env.token}`
-	);
-	const { data, error, loading } = useFetch(endpoint);
-	if (error) return <p>Sorry something went wrong :( try to reload the page</p>;
-	console.log(data);
+	const { data, error, loading } = useFetch(`?starts_with=shop&is_startpage=0`);
 
+	const categories = useFetch(`?starts_with=categories`);
+
+	useEffect(() => {
+		setArticles(data?.stories);
+	}, [data]);
+
+	if (error) return <p>Sorry something went wrong :( try to reload the page</p>;
+	console.log(articles);
 	return (
 		<>
 			<div className={styles.optionsBar}>
@@ -71,95 +45,45 @@ function Articles() {
 							<li
 								key="0"
 								onClick={() => {
-									setPageSize('8');
-									setEndpoint(
-										`stories?per_page=${pageSize}&page=1&starts_with=articles&cv=${timestamp}&token=${process.env.token}&sort_by=content.isSold:asc`
-									);
+									setArticles(data?.stories);
 									setCategory('Alla');
 								}}
 							>
 								Alla
 							</li>
-							{categories.data.stories.map((category: ICategory) => {
+							{categories.data.stories.map(({ content, uuid }: ICategory) => {
 								return (
 									<li
-										key={category.uuid}
+										key={uuid}
 										onClick={() => {
-											setPageSize('8');
-											setEndpoint(
-												`stories?filter_query[category][in_array]=${category.uuid}&per_page=${pageSize}&page=1&starts_with=articles&cv=${timestamp}&token=${process.env.token}&sort_by=content.isSold:asc`
+											setArticles(
+												data?.stories.filter((article: IArticle) =>
+													article.content.category.includes(uuid)
+												)
 											);
-											setCategory(category.content.name);
+											setCategory(content.name);
 										}}
 									>
-										{category.content.name}
+										{content.name}
 									</li>
 								);
 							})}
 						</ul>
 					</div>
 				) : null}
-				<div
-					className={styles.searchButton}
-					onClick={() => {
-						setDropdownSearch(!dropdownSearch);
-					}}
-				>
-					<span>
-						Sök
-						{dropdownSearch ? <FaAngleUp /> : <FaAngleDown />}
-					</span>
-				</div>
-				{dropdownSearch ? (
-					<div className={styles.searchBar}>
-						<input
-							type="text"
-							onChange={(e) => {
-								setSearchTerm(e.target.value);
-							}}
-							value={searchTerm}
-						/>
-						<GrClose
-							onClick={() => {
-								setSearchLoad(true);
-								setSearchTerm('');
-								setDropdownSearch(false);
-							}}
-						/>
-					</div>
-				) : null}
 			</div>
 
-			{loading || searchLoad ? (
+			{loading ? (
 				<div className="loaderContainer">
 					<p>Laddar...</p>
 				</div>
 			) : null}
 			<div className={styles.articlesWrapper}>
 				<div className={styles.articlesContainer}>
-					{data?.stories.map((article: IArticle) => {
+					{articles?.map((article: IArticle) => {
 						return <ArticleCard key={article.id.toString()} article={article} />;
 					})}
 				</div>
-			</div>
-
-			<div className={styles.pagContainer}>
-				{Number(pageSize) >= allArticles.data?.stories?.length ? (
-					<p></p>
-				) : (
-					<button
-						className="blackButton"
-						onClick={() => {
-							let page = (Number(pageSize) + 8).toString();
-							setPageSize(page);
-							setEndpoint(
-								`stories?per_page=${page}&page=1&starts_with=articles&cv=${timestamp}&token=${process.env.token}&sort_by=content.isSold:asc`
-							);
-						}}
-					>
-						Visa mer!
-					</button>
-				)}
 			</div>
 		</>
 	);

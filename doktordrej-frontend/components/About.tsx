@@ -5,7 +5,9 @@ import åkerö from './../public/åkerö.png';
 import Image from 'next/image';
 import useFetch from '../hooks/useFetch';
 import StoryblokClient from 'storyblok-js-client';
-
+interface IImage {
+	filename: string;
+}
 function About() {
 	const [richtextHtml, setRichTextHtml] = useState('<div></div>');
 	let timestamp = 0;
@@ -13,9 +15,7 @@ function About() {
 		timestamp = Date.now();
 	}, []);
 
-	const { data, error, loading } = useFetch(
-		`stories/aboutmetext?cv=${timestamp}&token=${process.env.token}&version=published`
-	);
+	const { data, error, loading } = useFetch(`aboutme`);
 	const Storyblok = new StoryblokClient({ accessToken: process.env.token });
 	useEffect(() => {
 		setRichTextHtml(Storyblok.richTextResolver.render(data?.story?.content.text));
@@ -35,8 +35,9 @@ function About() {
 						{<div dangerouslySetInnerHTML={{ __html: richtextHtml }} />}
 					</div>
 					<div className={styles.aboutMeImages}>
-						<Image src={natalia} alt="bild på natalia" />
-						<Image src={åkerö} alt="bild på keramik utomhus" />
+						{data?.story?.content.images.map((img: IImage) => (
+							<Image src={img.filename} alt="bild på natalia" width={250} height={250} />
+						))}
 					</div>
 				</div>
 			</div>

@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import logo from './../public/logo.svg';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import useFetch from '../hooks/useFetch';
 
 interface INavProps {
 	dark: boolean;
@@ -13,6 +14,7 @@ interface INavProps {
 function Nav(props: INavProps) {
 	const [toggle, setToggle] = useState(false);
 	const router = useRouter();
+	let { data } = useFetch('shop');
 
 	useEffect(() => {
 		setToggle(false);
@@ -47,7 +49,7 @@ function Nav(props: INavProps) {
 							<Link href="/galleri">Galleri</Link>
 						</li>
 						<li>
-							<Link href="/shop">Shop</Link>
+							<Link href="/shop">{data?.story.content.title}</Link>
 						</li>
 					</ul>
 				</div>

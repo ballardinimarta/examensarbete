@@ -1,30 +1,31 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react';
 
 const useFetch = (url: string) => {
-    // const baseUrl = "https://doktordrej-backend.herokuapp.com"
-    const baseUrl = "https://api.storyblok.com/v2/cdn/"
-    const [data, setData] = useState<any>()
-    const [error, setError] = useState<any>()
-    const [loading, setLoading] = useState(false)
-    useEffect(()=> {
-        const fetchData = async () => {
-            setLoading(true)
-            try {
-                const res = await fetch(baseUrl+ url);
-                const json = await res.json();
+	let baseUrl: string;
 
-                setData(json)
-                setLoading(false)
-            } catch (error) {
-                setError(error)
-                setLoading(false)
+	url.includes('?')
+		? (baseUrl = `https://api.storyblok.com/v2/cdn/stories/${url}&token=${process.env.token}`)
+		: (baseUrl = `https://api.storyblok.com/v2/cdn/stories/${url}?token=${process.env.token}`);
+	const [data, setData] = useState<any>();
+	const [error, setError] = useState<any>();
+	const [loading, setLoading] = useState(false);
+	useEffect(() => {
+		const fetchData = async () => {
+			setLoading(true);
+			try {
+				const res = await fetch(baseUrl + `&cv=${Date.now()}`);
+				const json = await res.json();
 
-            }
-        }
-        fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [url])
+				setData(json);
+				setLoading(false);
+			} catch (error) {
+				setError(error);
+				setLoading(false);
+			}
+		};
+		fetchData();
+	}, [url]);
 
-    return {data , error, loading}
-}
-export default useFetch
+	return { data, error, loading };
+};
+export default useFetch;
