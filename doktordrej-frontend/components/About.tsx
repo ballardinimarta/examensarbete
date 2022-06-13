@@ -35,8 +35,14 @@ function About() {
 						{<div dangerouslySetInnerHTML={{ __html: richtextHtml }} />}
 					</div>
 					<div className={styles.aboutMeImages}>
-						{data?.story?.content.images.map((img: IImage) => (
-							<Image src={img.filename} alt="bild på natalia" width={250} height={250} />
+						{data?.story?.content.images.map((img: IImage, index: number) => (
+							<Image
+								src={img.filename}
+								alt="bild på natalia"
+								width={250}
+								height={250}
+								key={index}
+							/>
 						))}
 					</div>
 				</div>
