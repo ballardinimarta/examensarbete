@@ -10,12 +10,9 @@ interface IArticleProps {
 
 function Article(props: IArticleProps) {
 	let imagelist = props.article.content.images;
-	console.log(imagelist);
 	if (!imagelist.includes(props.article.content.displayImage)) {
 		imagelist.unshift(props.article.content.displayImage);
 	}
-	console.log(props);
-
 	return (
 		<>
 			<Link href={'/shop'}>

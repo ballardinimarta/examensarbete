@@ -49,7 +49,6 @@ function ArticlesOld() {
 	);
 	const { data, error, loading } = useFetch(endpoint);
 	if (error) return <p>Sorry something went wrong :( try to reload the page</p>;
-	console.log(data);
 
 	return (
 		<>

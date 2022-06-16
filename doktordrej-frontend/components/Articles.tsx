@@ -20,11 +20,25 @@ function Articles() {
 	const categories = useFetch(`?starts_with=categories`);
 
 	useEffect(() => {
-		setArticles(data?.stories);
+		setArticles(
+			data?.stories.sort(function (a: IArticle, b: IArticle) {
+				const nameA = a.content.isSold; // ignore upper and lowercase
+				const nameB = b.content.isSold; // ignore upper and lowercase
+				if (nameA < nameB) {
+					return -1;
+				}
+				if (nameA > nameB) {
+					return 1;
+				}
+
+				// names must be equal
+				return 0;
+			})
+		);
 	}, [data]);
 
 	if (error) return <p>Sorry something went wrong :( try to reload the page</p>;
-	console.log(articles);
+
 	return (
 		<>
 			<div className={styles.optionsBar}>

@@ -29,12 +29,10 @@ function InstagramFeed() {
 						user.data.push(post);
 					});
 					let allPosts = user.data;
-					console.log(allPosts);
 					setUser({ data: allPosts, paging: data.paging });
 				});
 		}
 	}
-	console.log(user);
 
 	return (
 		<>
