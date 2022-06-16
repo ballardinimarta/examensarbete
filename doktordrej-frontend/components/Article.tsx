@@ -31,14 +31,16 @@ function Article(props: IArticleProps) {
 						{props.article.content.isSold ? (
 							<span className={styles.articlePrice}>Slutsåld</span>
 						) : (
-							<Link
-								href={`mailto:natalia.ballardini@gmail.com?subject=Beställning av artikelnr: ${props.article.id}&body=Hej jag skulle vilja beställa ${props.article.content.name}, ${props.article.content.price} kr. Går denna att beställa till mig? Min adress är (FYLL I DIN ADRESSS HÄR)`}
-								passHref
-							>
-								<button disabled className={styles.shopButton}>
-									{props.article.content.buttonText}
-								</button>
-							</Link>
+							props.article.content.buttonText && (
+								<Link
+									href={`mailto:natalia.ballardini@gmail.com?subject=Beställning av artikelnr: ${props.article.id}&body=Hej jag skulle vilja beställa ${props.article.content.name}, ${props.article.content.price} kr. Går denna att beställa till mig? Min adress är (FYLL I DIN ADRESSS HÄR)`}
+									passHref
+								>
+									<button disabled className={styles.shopButton}>
+										{props.article.content.buttonText}
+									</button>
+								</Link>
+							)
 						)}
 					</div>
 				</div>
