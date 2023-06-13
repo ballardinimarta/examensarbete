@@ -1,5 +1,0 @@
-{
-    "testFiles": "**/*.*",
-    "componentFolder": "cypress/components",
-    "nodeVersion": "system"
-  }

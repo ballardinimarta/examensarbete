@@ -13,7 +13,6 @@
     "start": "cd doktordrej-backend && npm start",
     "unittest": "cd doktordrej-frontend && npx cypress open",
     "componenttest": "cd doktordrej-frontend && npx cypress open-ct"
-
   },
   "author": "",
   "license": "ISC"
