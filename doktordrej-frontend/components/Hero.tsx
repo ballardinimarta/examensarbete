@@ -8,7 +8,7 @@ function Hero() {
                 <span>Natalia Ballardini</span>
                 <span>Keramik, Åkerö</span>
                 <a href="#aboutMe">
-                    <button className="blackButton">Lär känna mig!</button>
+                    <button className="blackButton">Mer om keramiken!</button>
                 </a>
             </div>
         </div>
