@@ -24,7 +24,7 @@ function About() {
 	return (
 		<div className={styles.aboutMeSection} id="aboutMe">
 			<div className={styles.aboutMeWrap}>
-				<span className="title">Om mig</span>
+				<span className="title">Om keramiken</span>
 				<div className={styles.aboutMeInfoContainer}>
 					<div className={styles.aboutMeText}>
 						{loading ? (
